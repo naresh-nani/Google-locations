@@ -1,0 +1,60 @@
+
+<form autocomplete="off" action="/action_page.php" style="text-align: center;">
+  
+  
+  <div style="margin-top: 80px;" >
+    <input id="autocomplete" style="border: 4px solid #ddd;
+    border-radius: 15px;
+    width: 40%;" type="search"
+      name="myCountry" value="" placeholder="Location" [(ngModel)]="model">
+      <input type="hidden" id="location" name="location" [(ngModel)]="place" />
+  </div>
+
+  
+ <!-- Display the data from database  -->
+  <div *ngIf="(this.first || this.second) && this.session">
+    <input style="border: 4px solid #ddd;
+  border-radius: 15px;padding: 5px;
+  width: 15%;margin-top: 13px;margin-left: 0px;background-color:blue;color:white;"
+      type="search" name="first" [(ngModel)]="this.first">
+
+      <input style="border: 4px solid #ddd;
+  border-radius: 15px;padding: 5px;
+  width: 15%;margin-top: 13px;background-color:blue;color:white;"
+      type="search" name="second" [(ngModel)]="this.second">
+
+      <select  class="multiselect"  style="border: 4px solid #ddd;
+      border-radius: 15px;padding: 8px;
+      width: 10%;margin-top: 13px;background-color:blue;color:white;"  name="repeatSelect" id="repeatSelect" ng-model="data.model">
+          <option value="0"><span>(</span>{{this.more.length}}<span>) More..</span></option>
+          <option *ngFor="let mr of more;let i = index;" value="{{mr.location}}">{{mr.location}}</option>
+        </select>
+  </div>
+
+
+
+<!-- Disply the suggestion from the list data-->
+
+  <div *ngIf="session===false">
+   
+    <input style="border: 4px solid #ddd;
+  border-radius: 15px;padding: 5px;
+  width: 15%;margin-top: 13px;margin-left: 0px;background-color:blue;color:white;"
+      type="search" name="session_first" [(ngModel)]="session_first">
+
+      <input style="border: 4px solid #ddd;
+  border-radius: 15px;padding: 5px;
+  width: 15%;margin-top: 13px;background-color:blue;color:white;"
+      type="search" name="session_second" [(ngModel)]="session_second">
+
+      <select style="border: 4px solid #ddd;
+      border-radius: 15px;padding: 8px;
+      width: 10%;margin-top: 13px;background-color:blue;color:white;"  name="repeatSelect" id="repeatSelect" ng-model="data.model">
+          <option value="0"><span>(</span>{{this.more.length}}<span>) More..</span></option>
+          <option *ngFor="let mr of more;let i = index;" value="{{mr.location}}">{{mr.location}}</option>
+        </select>
+  </div>
+</form>
+
+
+

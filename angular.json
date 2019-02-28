@@ -23,9 +23,12 @@
               "src/assets"
             ],
             "styles": [
+             
               "src/styles.css"
             ],
-            "scripts": [],
+            "scripts": [
+              "./node_modules/hammerjs/hammer.min.js"
+            ],
             "es5BrowserSupport": true
           },
           "configurations": {
